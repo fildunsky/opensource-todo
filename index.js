@@ -5,6 +5,8 @@ const path = require("path");
 const kebabCase = require("lodash/kebabCase");
 const { is, readSheet } = require("./src/util");
 const file = require("./src/file");
+// Must run before the settings store reads its file
+require("./src/migrate").migrateProfile();
 const { store } = require("./src/settings");
 const shortcut = require("./src/keymap");
 const time = require("./src/time");
