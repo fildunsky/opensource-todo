@@ -1,5 +1,5 @@
 {
-  description = "Kuro's Flake";
+  description = "Opensource ToDo flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

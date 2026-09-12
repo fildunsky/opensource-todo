@@ -20,11 +20,8 @@ If applicable, add screenshots to help explain your problem.
 
 **Technical Info (please complete the following information)**
  - OS:
- - Kuro Version:
+ - Opensource ToDo version:
 
 **Additional context**
 Add any other context about the problem here.
 
----
-cc:
-@davidsmorais

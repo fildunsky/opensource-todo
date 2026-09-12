@@ -10,7 +10,7 @@
  * list and is left unused on the web.
  *
  * With the option on, the list view and the list's own sidebar entry follow
- * that palette instead of Kuro's brand colour. Backgrounds are a separate
+ * that palette instead of Opensource ToDo's brand colour. Backgrounds are a separate
  * feature (src/background.js). Nothing outside the current list is recoloured
  * (see issue #91).
  */

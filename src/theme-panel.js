@@ -37,16 +37,16 @@ const flash = node => {
     node.removeEventListener("animationend", previous.done);
   }
 
-  node.classList.remove("kuro-highlight-flash");
+  node.classList.remove("todo-highlight-flash");
   node.getBoundingClientRect();
-  node.classList.add("kuro-highlight-flash");
+  node.classList.add("todo-highlight-flash");
   const done = event => {
     // The active ring's own animation (on ::after) ends on this node too
-    if (event && event.animationName !== "kuro-highlight-flash") {
+    if (event && event.animationName !== "todo-highlight-flash") {
       return;
     }
 
-    node.classList.remove("kuro-highlight-flash");
+    node.classList.remove("todo-highlight-flash");
     node.removeEventListener("animationend", done);
     flashes.delete(node);
   };
@@ -192,7 +192,7 @@ class ThemePanel {
   };
 
   _onMouseDown = event => {
-    const inside = event.target.closest(`#kuro-theme-pane, #kuro-theme-btn, ${LAYER}`);
+    const inside = event.target.closest(`#todo-theme-pane, #todo-theme-btn, ${LAYER}`);
     if (!inside) {
       this.close();
     }
@@ -216,7 +216,7 @@ class ThemePanel {
   // re-renders its header, so the button is re-inserted by an observer.
   mountButton() {
     const place = () => {
-      if (document.querySelector("#kuro-theme-btn")) {
+      if (document.querySelector("#todo-theme-btn")) {
         return;
       }
 
@@ -226,7 +226,7 @@ class ThemePanel {
       }
 
       const node = button("", "");
-      node.id = "kuro-theme-btn";
+      node.id = "todo-theme-btn";
       node.title = t("theme.button");
       node.setAttribute("aria-label", t("theme.button"));
       node.innerHTML = PALETTE_ICON;
@@ -242,57 +242,57 @@ class ThemePanel {
   // ---- DOM, built once ----------------------------------------------------
 
   _build() {
-    const root = element("div", "kuro-theme-pane");
-    root.id = "kuro-theme-pane";
+    const root = element("div", "todo-theme-pane");
+    root.id = "todo-theme-pane";
     root.setAttribute("role", "dialog");
     root.setAttribute("aria-label", t("theme.title"));
     root.hidden = true;
 
-    const header = element("div", "kuro-theme-pane__header");
-    const title = element("h2", "kuro-theme-pane__title", t("theme.title"));
-    const close = button("kuro-theme-pane__close");
+    const header = element("div", "todo-theme-pane__header");
+    const title = element("h2", "todo-theme-pane__title", t("theme.title"));
+    const close = button("todo-theme-pane__close");
     close.title = t("theme.close");
     close.setAttribute("aria-label", t("theme.close"));
     close.innerHTML = CLOSE_ICON;
     close.addEventListener("click", () => this.close());
     header.append(title, close);
 
-    const scroll = element("div", "kuro-theme-pane__scroll");
-    const list = element("p", "kuro-theme-pane__list");
-    const noList = element("p", "kuro-theme-pane__hint kuro-theme-pane__no-list", t("theme.noList"));
-    const body = element("div", "kuro-theme-pane__body");
+    const scroll = element("div", "todo-theme-pane__scroll");
+    const list = element("p", "todo-theme-pane__list");
+    const noList = element("p", "todo-theme-pane__hint todo-theme-pane__no-list", t("theme.noList"));
+    const body = element("div", "todo-theme-pane__body");
 
-    const tabs = element("div", "kuro-theme-pane__tabs");
+    const tabs = element("div", "todo-theme-pane__tabs");
     tabs.setAttribute("role", "tablist");
     const tabButtons = {};
     const sections = {};
     for (const id of TABS) {
-      const tab = button("kuro-theme-pane__tab", t(`theme.tab.${id}`));
+      const tab = button("todo-theme-pane__tab", t(`theme.tab.${id}`));
       tab.setAttribute("role", "tab");
       tab.addEventListener("click", () => this._selectTab(id));
       tabs.append(tab);
       tabButtons[id] = tab;
 
-      const section = element("section", "kuro-theme-pane__section");
+      const section = element("section", "todo-theme-pane__section");
       section.setAttribute("role", "tabpanel");
       sections[id] = section;
     }
 
-    const indicator = element("div", "kuro-theme-pane__tab-indicator");
+    const indicator = element("div", "todo-theme-pane__tab-indicator");
     indicator.setAttribute("aria-hidden", "true");
     tabs.append(indicator);
 
     const swatches = [];
     for (const light of [false, true]) {
-      sections.color.append(element("p", "kuro-theme-pane__label", t(light ? "theme.color.light" : "theme.color.solid")));
-      const row = element("div", "kuro-theme-pane__row");
+      sections.color.append(element("p", "todo-theme-pane__label", t(light ? "theme.color.light" : "theme.color.solid")));
+      const row = element("div", "todo-theme-pane__row");
       for (const color of colors) {
-        const swatch = button(light ? "kuro-theme-pane__swatch is-light" : "kuro-theme-pane__swatch");
+        const swatch = button(light ? "todo-theme-pane__swatch is-light" : "todo-theme-pane__swatch");
         swatch.title = t(`theme.color.${color.id}`);
         swatch.setAttribute("aria-label", swatch.title);
         swatch.style.setProperty("--swatch", light ? color.light : color.solid);
         swatch.style.setProperty("--swatch-ring", color.solid);
-        swatch.style.setProperty("--kuro-flash", color.solid);
+        swatch.style.setProperty("--todo-flash", color.solid);
         swatch.addEventListener("click", () => {
           background.set({ kind: "color", value: color.id, light });
           flash(swatch);
@@ -305,13 +305,13 @@ class ThemePanel {
       sections.color.append(row);
     }
 
-    const grid = element("div", "kuro-theme-pane__scenes");
+    const grid = element("div", "todo-theme-pane__scenes");
     for (const scene of scenes) {
-      const tile = button("kuro-theme-pane__scene");
+      const tile = button("todo-theme-pane__scene");
       tile.dataset.scene = scene.id;
       tile.dataset.theme = `scene:${scene.id}`;
       tile.title = t(`theme.scene.${scene.id}`);
-      tile.append(element("span", "kuro-theme-pane__scene-label", tile.title));
+      tile.append(element("span", "todo-theme-pane__scene-label", tile.title));
       tile.addEventListener("click", () => {
         background.set({ kind: "scene", value: scene.id });
         flash(tile);
@@ -322,7 +322,7 @@ class ThemePanel {
 
     sections.scenes.append(grid);
 
-    const none = button("kuro-theme-pane__none", t("theme.none"));
+    const none = button("todo-theme-pane__none", t("theme.none"));
     none.dataset.theme = "none";
     none.addEventListener("click", () => {
       background.set(null);

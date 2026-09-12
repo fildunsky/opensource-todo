@@ -33,9 +33,9 @@ class Mode {
   // Cross-fade colours for a moment when the theme flips (see motion.css)
   _crossfade() {
     const html = document.documentElement;
-    html.classList.add("kuro-theme-switch");
+    html.classList.add("todo-theme-switch");
     clearTimeout(this._crossfadeTimer);
-    this._crossfadeTimer = setTimeout(() => html.classList.remove("kuro-theme-switch"), 350);
+    this._crossfadeTimer = setTimeout(() => html.classList.remove("todo-theme-switch"), 350);
   }
 
   _toggle(mode) {

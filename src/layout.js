@@ -48,7 +48,7 @@ class Layout {
     this._titleScheduled = false;
   }
 
-  // Publish, as --kuro-search-shift on <html>, how far the header search icon
+  // Publish, as --todo-search-shift on <html>, how far the header search icon
   // must move to sit above the list title icon (browser.css applies it as a
   // transform, so the O365 header layout itself is untouched).
   trackTitle() {
@@ -62,17 +62,17 @@ class Layout {
       const search = document.querySelector(SEARCH_BOX);
       const { style } = document.documentElement;
       if (!icon || !search) {
-        style.removeProperty("--kuro-search-shift");
+        style.removeProperty("--todo-search-shift");
         return;
       }
 
       // Layout positions only (offsetLeft chain), so transforms in flight -
       // the shift itself mid-transition, the list-switch animation - do not
       // feed back into the measurement.
-      const current = Number.parseFloat(style.getPropertyValue("--kuro-search-shift")) || 0;
+      const current = Number.parseFloat(style.getPropertyValue("--todo-search-shift")) || 0;
       const shift = Math.round(layoutLeft(icon) - 4 - layoutLeft(search));
       if (Number.isFinite(shift) && shift !== current) {
-        style.setProperty("--kuro-search-shift", `${shift}px`);
+        style.setProperty("--todo-search-shift", `${shift}px`);
       }
     };
 

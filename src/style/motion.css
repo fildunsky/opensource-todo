@@ -1,14 +1,14 @@
 /*
- * Motion shared by everything Kuro adds to the To-Do page. Same language as
+ * Motion shared by everything Opensource ToDo adds to the To-Do page. Same language as
  * zashboard: an iOS-style ease for movement, a springy one for indicators,
  * a subtle "bounce in" for content that appears and a soft ring flash to
  * confirm a choice. All of it is turned off under prefers-reduced-motion.
  */
 :root {
-  --kuro-ease: cubic-bezier(0.32, 0.72, 0, 1);
-  --kuro-ease-spring: cubic-bezier(0.22, 1.5, 0.36, 1);
+  --todo-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --todo-ease-spring: cubic-bezier(0.22, 1.5, 0.36, 1);
 }
-@keyframes kuro-bounce-in {
+@keyframes todo-bounce-in {
   from {
     opacity: 0.5;
     transform: scale(0.97);
@@ -18,29 +18,29 @@
     transform: none;
   }
 }
-@keyframes kuro-highlight-flash {
+@keyframes todo-highlight-flash {
   0% {
-    box-shadow: inset 0 0 0 2px var(--kuro-flash-inset, transparent), 0 0 0 0 color-mix(in srgb, var(--kuro-flash, var(--bg-brand, #007262)) 100%, transparent);
+    box-shadow: inset 0 0 0 2px var(--todo-flash-inset, transparent), 0 0 0 0 color-mix(in srgb, var(--todo-flash, var(--bg-brand, #007262)) 100%, transparent);
   }
   50% {
-    box-shadow: inset 0 0 0 2px var(--kuro-flash-inset, transparent), 0 0 0 4px color-mix(in srgb, var(--kuro-flash, var(--bg-brand, #007262)) 30%, transparent);
+    box-shadow: inset 0 0 0 2px var(--todo-flash-inset, transparent), 0 0 0 4px color-mix(in srgb, var(--todo-flash, var(--bg-brand, #007262)) 30%, transparent);
   }
   100% {
-    box-shadow: inset 0 0 0 2px var(--kuro-flash-inset, transparent), 0 0 0 0 color-mix(in srgb, var(--kuro-flash, var(--bg-brand, #007262)) 0%, transparent);
+    box-shadow: inset 0 0 0 2px var(--todo-flash-inset, transparent), 0 0 0 0 color-mix(in srgb, var(--todo-flash, var(--bg-brand, #007262)) 0%, transparent);
   }
 }
-.kuro-highlight-flash {
-  animation: kuro-highlight-flash 0.6s ease-out 2;
+.todo-highlight-flash {
+  animation: todo-highlight-flash 0.6s ease-out 2;
 }
-/* Switching lists: the task area settles in (html.kuro-list-switch is set for
+/* Switching lists: the task area settles in (html.todo-list-switch is set for
    a moment by src/background.js). The toolbar with the list title stays put:
    the header search icon is aligned to it (src/layout.js). */
-html.kuro-list-switch #app #main > :not(.tasksToolbar) {
-  animation: kuro-bounce-in 0.4s var(--kuro-ease) both;
+html.todo-list-switch #app #main > :not(.tasksToolbar) {
+  animation: todo-bounce-in 0.4s var(--todo-ease) both;
 }
 /* The search icon glides when its anchor moves (list switch, sidebar toggle) */
 #O365_NavHeader #toDoSearchBox .searchToolbar {
-  transition: transform 0.35s var(--kuro-ease);
+  transition: transform 0.35s var(--todo-ease);
 }
 /* Hover and selection changes glide instead of snapping */
 #app .listItem-container,
@@ -53,19 +53,19 @@ html.kuro-list-switch #app #main > :not(.tasksToolbar) {
 /* Toasts pop in (backwards fill: the end state is handed back to To-Do so
    its own dismissal still animates) */
 #root #container #app #notifications .notificationToast {
-  animation: kuro-bounce-in 0.4s var(--kuro-ease) backwards;
+  animation: todo-bounce-in 0.4s var(--todo-ease) backwards;
 }
 /* Dark/light switch: colours cross-fade instead of flipping
-   (html.kuro-theme-switch is set for a moment by src/mode.js) */
-html.kuro-theme-switch,
-html.kuro-theme-switch :not(.kuro-theme-pane, .kuro-theme-pane *, .searchToolbar, #kuro-theme-btn svg),
-html.kuro-theme-switch *::before,
-html.kuro-theme-switch *::after {
+   (html.todo-theme-switch is set for a moment by src/mode.js) */
+html.todo-theme-switch,
+html.todo-theme-switch :not(.todo-theme-pane, .todo-theme-pane *, .searchToolbar, #todo-theme-btn svg),
+html.todo-theme-switch *::before,
+html.todo-theme-switch *::after {
   transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out, fill 0.3s ease-out !important;
 }
 @media (prefers-reduced-motion: reduce) {
-  .kuro-highlight-flash,
-  html.kuro-list-switch #app #main > :not(.tasksToolbar),
+  .todo-highlight-flash,
+  html.todo-list-switch #app #main > :not(.tasksToolbar),
   #root #container #app #notifications .notificationToast {
     animation: none;
   }
@@ -75,10 +75,10 @@ html.kuro-theme-switch *::after {
   #app .toolbarButton,
   #app .button,
   #O365_NavHeader #toDoSearchBox .searchToolbar,
-  html.kuro-theme-switch,
-  html.kuro-theme-switch :not(.kuro-theme-pane, .kuro-theme-pane *, .searchToolbar, #kuro-theme-btn svg),
-  html.kuro-theme-switch *::before,
-  html.kuro-theme-switch *::after {
+  html.todo-theme-switch,
+  html.todo-theme-switch :not(.todo-theme-pane, .todo-theme-pane *, .searchToolbar, #todo-theme-btn svg),
+  html.todo-theme-switch *::before,
+  html.todo-theme-switch *::after {
     transition: none !important;
   }
 }

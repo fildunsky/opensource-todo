@@ -18,7 +18,7 @@ const { log } = console;
 // The To-Do web app picks its language bundle ("Add a task", dates, etc.) from
 // the renderer's navigator.language. That follows the process locale, which on
 // Linux comes from the LANG/LC_ALL environment and on all platforms from the
-// --lang switch. Set both from the Kuro language setting so To-Do matches the
+// --lang switch. Set both from the Opensource ToDo language setting so To-Do matches the
 // menus; "system" leaves the OS locale untouched.
 {
   const chosen = store.get("language");
@@ -70,7 +70,7 @@ app.on("second-instance", () => {
   }
 });
 
-// Issue #111: reopen the list that was open when Kuro was last closed
+// Issue #111: reopen the list that was open when Opensource ToDo was last closed
 function startUrl() {
   const last = store.get("lastURL");
   const isList = typeof last === "string"
@@ -81,11 +81,11 @@ function startUrl() {
 }
 
 function createMainWindow() {
-  const kuroWindow = new BrowserWindow(win.defaultOpts);
+  const todoWindow = new BrowserWindow(win.defaultOpts);
 
-  kuroWindow.loadURL(startUrl());
+  todoWindow.loadURL(startUrl());
 
-  kuroWindow.on("close", (event) => {
+  todoWindow.on("close", (event) => {
     if (exiting) {
       return;
     }
@@ -100,23 +100,23 @@ function createMainWindow() {
     if (is.darwin) {
       app.hide();
     } else {
-      kuroWindow.hide();
+      todoWindow.hide();
     }
   });
 
-  kuroWindow.on("page-title-updated", (error) => {
+  todoWindow.on("page-title-updated", (error) => {
     error.preventDefault();
   });
 
-  kuroWindow.on("unresponsive", log);
+  todoWindow.on("unresponsive", log);
 
   for (const event of ["did-navigate", "did-navigate-in-page"]) {
-    kuroWindow.webContents.on(event, (_, url) => {
+    todoWindow.webContents.on(event, (_, url) => {
       store.set("lastURL", url);
     });
   }
 
-  return kuroWindow;
+  return todoWindow;
 }
 
 app.whenReady().then(() => {
@@ -127,7 +127,7 @@ app.whenReady().then(() => {
   Menu.setApplicationMenu(menu);
 
   // Language for the To-Do web app itself (its UI strings, "Add a task",
-  // dates). Follows the Kuro language setting; "system" keeps the OS locale.
+  // dates). Follows the Opensource ToDo language setting; "system" keeps the OS locale.
   const preferred = store.get("language") === "en" || store.get("language") === "ru"
     ? store.get("language")
     : app.getLocale();

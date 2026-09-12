@@ -8,7 +8,7 @@ const win = require("./../win");
 
 module.exports = [
   {
-    label: t("tray.openKuro"),
+    label: t("tray.openApp"),
     click() {
       win.toggle();
     },
@@ -117,7 +117,7 @@ module.exports = [
     type: "separator",
   },
   {
-    label: t("tray.kuroSettings"),
+    label: t("tray.appSettings"),
     click() {
       win.appear();
       require("./../settings-window").open();

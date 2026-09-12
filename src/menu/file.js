@@ -176,7 +176,7 @@ module.exports = {
       },
     },
     {
-      label: t("menu.file.kuroSettings"),
+      label: t("menu.file.appSettings"),
       accelerator: "CmdorCtrl+Shift+,",
       click() {
         // Required lazily: the settings window lives in its own module.
@@ -237,7 +237,7 @@ module.exports = {
       },
     },
     {
-      label: t("menu.file.exitKuro"),
+      label: t("menu.file.exitApp"),
       visible: !is.darwin,
       accelerator: setAcc("exit", "CmdorCtrl+Q"),
       click() {

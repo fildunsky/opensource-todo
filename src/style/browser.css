@@ -33,7 +33,7 @@ html.reverse-new-task #main .main-background{
    header. Moved with a transform only, so the O365 shell's own header
    measurements stay intact; the offset is computed by src/layout.js. */
 #O365_NavHeader #toDoSearchBox .searchToolbar {
-  transform: translateX(var(--kuro-search-shift, 0px));
+  transform: translateX(var(--todo-search-shift, 0px));
 }
 #root #container #O365_NavHeader #Region_3 {
   position: relative;

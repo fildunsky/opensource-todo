@@ -15,7 +15,7 @@ class Keymap {
   }
 
   registerGlobal() {
-    const toggleKuro = globalShortcut.register(
+    const toggleApp = globalShortcut.register(
       this.setAcc("global-toggle-window", "CmdorCtrl+Alt+A"),
       () => {
         win.toggle();
@@ -38,7 +38,7 @@ class Keymap {
       },
     );
 
-    if (toggleKuro && searchTodo && createTodo) {
+    if (toggleApp && searchTodo && createTodo) {
       log("Successfully registered global shortcut keys");
     } else {
       log("Global shortcut keys registration failed");

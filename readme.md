@@ -1,93 +1,69 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/davidsmorais/kuro/master/static/Icon.png" width="300" />
+<img src="https://raw.githubusercontent.com/fildunsky/opensource-todo/master/static/Icon.png" width="300" />
 </p>
 
-## Description
+# Opensource ToDo
 
-Kuro is an unofficial, featureful, open source, community-driven, free Microsoft To-Do app for Linux, made by [David Morais](https://davidmorais.com)
+An unofficial, featureful, open source, community-driven, free Microsoft To-Do desktop app for Linux (with a Windows installer built by CI).
 
+Opensource ToDo continues [Kuro](https://github.com/davidsmorais/kuro) by [David Morais](https://davidmorais.com), which itself continued [Ao](https://github.com/klaussinani/ao) by [Klaus Sinani](https://github.com/klaussinani). Both projects went quiet; this fork keeps the app working and adds what its users asked for. All credit for the original work, the logo and the icons goes to them - see [Credits](#credits).
 
-## Main Features
-- The best Microsoft ToDo desktop client for Linux
-- [Custom Themes 🎨](https://github.com/davidsmorais/kuro/wiki/Custom-Themes-%F0%9F%8E%A8)
-- [Global Keyboard Shortcuts ⌨️](https://github.com/davidsmorais/kuro/wiki/Keyboard-Shortcuts)
+## Features
 
-![image](https://user-images.githubusercontent.com/22729436/221692628-73b21cee-567f-4e48-a91c-3cd8db7b9438.png)
-
-> ⚠️ Kuro is a fork of [Ao](https://github.com/klaussinani/ao) which is no longer actively maintained
+- Wraps the Microsoft To-Do web app in a proper desktop window: tray icon, launch on start, launch minimized, global shortcuts (X11), always on top, single instance
+- **Per-list themes** - seven colours (solid or light) or eight scenes, per list and for My Day, picked in a pane that slides in like To-Do's own settings pane
+- **Follow List Colors** - the list view and its sidebar entry follow the colour palette To-Do assigns to the list
+- **Follow System Theme** - light and dark follow the OS; **Custom theme** with editable colours
+- **Settings window** with native controls (general, appearance, shortcuts) plus the editable `todo.json`
+- **Localization** - English and Russian for menus, tray and dialogs; the chosen language is applied to the To-Do web app itself
+- Reopen the last open list on launch, zoom 50-300%, keyboard shortcuts for everything (see `Help > Keyboard Shortcuts`)
+- Update check against GitHub Releases
+- Native Wayland (Electron 44): crisp HiDPI scaling, correct app icon and notification attribution
 
 ## Installation
-![Latest version](https://badge.fury.io/gh/davidsmorais%2Fkuro.svg)
 
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/kuro-desktop)
-
-Head over to the [releases 🚀](https://github.com/davidsmorais/kuro/releases) page and download your distribution's package.
-Checkout our [Installation Guide](https://github.com/davidsmorais/kuro/wiki/Installing-Kuro) for more information
-
-### Snapcraft
-
-Kuro can be found on the [Snap Store](https://snapcraft.io/kuro-desktop/).
-If you have Snap installed on your system you can install Kuro from the **stable** channel by running
-```
-sudo snap install kuro-desktop
-```
-Then launch it from your desktop's application menu, or run `kuro-desktop` (snap puts the binary in `/snap/bin`, which is normally on your `PATH`; if it is not, run `/snap/bin/kuro-desktop`).
-
-> ⚠️ Do **not** use `--edge`: the edge channel is outdated and no longer maintained. If you previously installed it, switch with `sudo snap refresh kuro-desktop --stable`.
-
-Kuro stores its settings in `~/.config/Kuro/` (`~/snap/kuro-desktop/current/.config/Kuro/` for the snap), following the XDG base directory spec. A `~/.kuro.json` from older versions is moved there automatically on first start.
-### AUR
-
-Kuro can be found in [AUR](https://aur.archlinux.org/packages/kuro-appimage) (Thanks to [Reverier-Xu](https://github.com/Reverier-Xu)).
-To install Kuro, you can run
+Download your distribution's package from the [releases page](https://github.com/fildunsky/opensource-todo/releases/latest): `.deb`, `.rpm`, `.pacman`, `.AppImage`, `.snap`, `.flatpak`, or the Windows installer. Every push to `master` is also built by GitHub Actions; the packages are attached to the workflow run as artifacts.
 
 ```
-paru -S kuro-appimage
+sudo apt install ./todo-desktop_<version>_amd64.deb
 ```
 
-or
+The executable is `todo-desktop`.
 
-```
-yay -S kuro-appimage
-```
+### Coming from Kuro
 
-* **Do not request new package types**. You can submit the PR or an [issue](https://github.com/davidsmorais/kuro/issues/new/choose) to have them built.
-
-
+Opensource ToDo keeps its profile in `~/.config/Opensource ToDo/` (XDG base directory). On the first start it copies the Kuro profile from `~/.config/Kuro/` if there is one - settings, list themes, window state and shortcuts come along. You will have to sign in to your Microsoft account once more: Chromium encrypts the web session with a key tied to the application's name. A `~/.kuro.json` from very old versions is migrated as well.
 
 ### Wayland
 
-Kuro runs through XWayland by default. To run natively on Wayland (crisp HiDPI scaling), start it with Electron's standard environment variable, for example:
+Electron 44 picks native Wayland automatically on a Wayland session. To force a backend:
 
 ```
-ELECTRON_OZONE_PLATFORM_HINT=auto kuro-desktop
+ELECTRON_OZONE_PLATFORM_HINT=x11 todo-desktop
 ```
 
-Note that the optional global shortcuts only work on X11.
+Global shortcuts only work on X11.
 
-## Bug 🐞, Questions ❓ or  Feature Request 🚀 ?
-Submit an [issue](https://github.com/davidsmorais/kuro/issues/new/choose) or a PR.
+## Settings
 
+`File > Settings…` opens the settings window. Advanced values (custom theme colours, keyboard shortcuts) live in `~/.config/Opensource ToDo/todo.json`, which the window can open in your editor. See [contributing.md](contributing.md) for translations and [docs/build-instructions](docs/build-instructions/index.md) for building the packages yourself.
 
+## Keyboard shortcuts
 
-## [Devlog](./docs/devlog.md)
+`Help > Keyboard Shortcuts` shows the current bindings; they are configurable in the settings window. Defaults on Linux/Windows use `Ctrl`, on macOS `Cmd`.
 
-### 01/08/2025
-Two years have passed since the last update, and Kuro has been stable. I have been working on other projects, but I am still committed to maintaining Kuro. 9.1 should be released soon, with some fixes, security updates and a tiny new feature ✨
+## Bug 🐞, question ❓ or feature request 🚀?
 
----
-Please provide feedback on the [issues](https://github.com/davidsmorais/kuro/issues) page 🚀
+Open an [issue](https://github.com/fildunsky/opensource-todo/issues/new/choose) or a pull request.
 
+## Credits
 
----
+- [Ao](https://github.com/klaussinani/ao) - the original Electron wrapper for Microsoft To-Do, by Klaus Sinani (MIT)
+- [Kuro](https://github.com/davidsmorais/kuro) - Ao's continuation, the logo, the icons, the themes and packaging, by David Morais and contributors (MIT); Kuro's [devlog](docs/devlog.md) is kept for history
+- Nix packaging by [LostAttractor](https://github.com/LostAttractor), AUR package of Kuro by [Reverier-Xu](https://github.com/Reverier-Xu)
 
-## Documentation
-Check out our [Wiki](https://github.com/davidsmorais/kuro/wiki) for documentation
+Microsoft To-Do is a trademark of Microsoft Corporation. This project is not affiliated with or endorsed by Microsoft.
 
-## To-Do List
-- [X] Full rebranding of Ao into Kuro
-- [x] Cleaning all the bugs. These can be found in the [issues](https://github.com/davidsmorais/kuro/issues) page 🚀
-- [ ] Implementing CI/CD for Linux packages 🚀
-- [X] Revision of documentation
-  - [ ] Landing Page with Documentation
-- [ ] Multi account support
+## License
+
+[MIT](license.md) - copyright Klaus Sinani (Ao), David Morais (Kuro) and the Opensource ToDo contributors.

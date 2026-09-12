@@ -14,7 +14,7 @@ const {
 } = electron;
 const { log } = console;
 
-const PREFIX = "kuro-settings:";
+const PREFIX = "todo-settings:";
 
 // Settings the page is allowed to touch (electron-store keys).
 const BOOLEAN_SETTINGS = new Set([
@@ -88,7 +88,7 @@ let settingsWindow = null;
 let settingsView = null;
 let handlersRegistered = false;
 
-// Same source as the menus (KURO_LANG, View > Language, OS locale)
+// Same source as the menus (TODO_LANG, View > Language, OS locale)
 function locale() {
   return require("../locale").language() === "ru" ? "ru" : "en";
 }
@@ -112,7 +112,7 @@ function send(command, ...args) {
   return true;
 }
 
-// ---- kuro.json ------------------------------------------------------------
+// ---- todo.json ------------------------------------------------------------
 
 function detectIndent(text) {
   const match = /\n([ \t]+)"/.exec(text || "");
@@ -511,7 +511,7 @@ function open() {
     resizable: true,
     title: strings.get(locale()).title,
     // Keep it above the To-Do window (which may itself be always-on-top);
-    // a hidden parent (Kuro in the tray) would just get in the way.
+    // a hidden parent (Opensource ToDo in the tray) would just get in the way.
     parent: main && main.isVisible() ? main : undefined,
     icon: is.linux ? file.icon : undefined,
     autoHideMenuBar: true,

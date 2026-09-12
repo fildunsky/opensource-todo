@@ -64,7 +64,7 @@ function fromSettings() {
 
 function language() {
   const candidates = [
-    process.env.KURO_LANG,
+    process.env.TODO_LANG,
     fromSettings(),
     fromElectron(),
     fromNavigator(),

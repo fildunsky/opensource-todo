@@ -7,7 +7,7 @@ const url = require("./url");
 const {log} = console;
 
 class Update {
-  // Turn "v9.1.3", "9.1.3-beta.1" or "Kuro v9.1" into [9, 1, 3]
+  // Turn "v9.1.3", "9.1.3-beta.1" or "Opensource ToDo v9.1" into [9, 1, 3]
   _parseVersion(version) {
     const match = /\d+(?:\.\d+)*/.exec(String(version));
 
@@ -49,7 +49,7 @@ class Update {
       const options = {
         headers: {
           Accept: "application/json",
-          "User-Agent": `Kuro/${app.getVersion()} (+${url.homepage})`,
+          "User-Agent": `Opensource ToDo/${app.getVersion()} (+${url.homepage})`,
           ...headers,
         },
         timeout: 15_000,

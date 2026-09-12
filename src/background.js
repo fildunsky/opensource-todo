@@ -6,7 +6,7 @@ const { store: settings } = require("./settings");
 // panel is stored under `listThemes[<list key>]` as
 //   { kind: "color", value: "<id>", light: bool }
 //   { kind: "scene", value: "<id>" }
-// and applied as <html data-kuro-background="…" data-kuro-tone="light|dark">
+// and applied as <html data-todo-background="…" data-todo-tone="light|dark">
 // plus CSS variables, which src/style/list-backgrounds.css picks up.
 const ACTIVE_LIST = ".listItem-container.active .listItem";
 const MY_DAY_ACTIVE = ".todayToolbar-item.active";
@@ -134,27 +134,27 @@ class Background {
 
     // Touch the document only when something changed (each write is a style
     // recalculation of the whole page)
-    if (dataset.kuroBackground !== background) {
+    if (dataset.todoBackground !== background) {
       if (background) {
-        dataset.kuroBackground = background;
+        dataset.todoBackground = background;
       } else {
-        delete dataset.kuroBackground;
+        delete dataset.todoBackground;
       }
     }
 
-    if (dataset.kuroTone !== tone) {
+    if (dataset.todoTone !== tone) {
       if (tone) {
-        dataset.kuroTone = tone;
+        dataset.todoTone = tone;
       } else {
-        delete dataset.kuroTone;
+        delete dataset.todoTone;
       }
     }
 
-    if (style.getPropertyValue("--kuro-list-bg") !== (listBackground || "")) {
+    if (style.getPropertyValue("--todo-list-bg") !== (listBackground || "")) {
       if (listBackground) {
-        style.setProperty("--kuro-list-bg", listBackground);
+        style.setProperty("--todo-list-bg", listBackground);
       } else {
-        style.removeProperty("--kuro-list-bg");
+        style.removeProperty("--todo-list-bg");
       }
     }
 
@@ -167,11 +167,11 @@ class Background {
   // change (the class is removed again once the animation is over).
   _animateListSwitch() {
     const html = document.documentElement;
-    html.classList.remove("kuro-list-switch");
+    html.classList.remove("todo-list-switch");
     html.getBoundingClientRect();
-    html.classList.add("kuro-list-switch");
+    html.classList.add("todo-list-switch");
     clearTimeout(this._switchTimer);
-    this._switchTimer = setTimeout(() => html.classList.remove("kuro-list-switch"), 450);
+    this._switchTimer = setTimeout(() => html.classList.remove("todo-list-switch"), 450);
   }
 
   set(theme) {

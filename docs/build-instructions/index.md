@@ -1,12 +1,12 @@
 # Build instructions
-Since there are native Windows & macOs clients, currently Kuro is only build distributed for Linux distros.
+Since there are native Windows & macOs clients, Opensource ToDo is built for Linux (and, from CI, as a Windows installer).
 
 ## Pre-requisites
 These are the pre-requisites to build packages. On a default Ubuntu install I had to install the following targets:
 
 ## 32-bit systems
 [Electron is no longer supporting 32bit Linux architecture](https://www.electronjs.org/blog/linux-32bit-support) so when we updated electron to 22.1.0 version in 8.1.7, we also lost the 32bit support.
-The last [Kuro version which works in 32bit systems is 8.1.6](https://github.com/davidsmorais/kuro/releases/tag/v8.1.6)
+The last Kuro version which works on 32-bit systems is [8.1.6](https://github.com/davidsmorais/kuro/releases/tag/v8.1.6)
 ### `.rpm`
 You need the following packages to build the `.rpm` packagetarget
 ```
@@ -23,11 +23,11 @@ sudo apt install libarchive-tools
 ```
 
 ### `snap`
-Change the package.json name of the app to `kuro-desktop`
+The snap is named after package.json (`todo-desktop`).
 Run `pnpm build-snap`
 After logging in to the snapcraft store
 ```
- snapcraft upload --release=stable dist/kuro-desktop_<release_name>
+ snapcraft upload --release=stable dist/todo-desktop_<release_name>
 ```
 
 ### `flatpak`
@@ -45,7 +45,7 @@ You can build the package for Windows. Simply clone the repo install the depende
 
 
 ## Building the packages
-Simply run `yarn release`
+Run `yarn release`. GitHub Actions builds every push (`.github/workflows/build.yml`) and attaches the packages to a release when a `v*` tag is pushed.
 
 
 
@@ -53,9 +53,9 @@ Simply run `yarn release`
 Improve suggestion is from https://github.com/NixOS/nixpkgs/pull/211022
 
 And, The Nix mainline has been migrated to the brand-new flake system. So, we now have Flake support!
-Most intuitively, we can now just use `nix run` in the project directory to build and run kuro package directly.
+Most intuitively, we can now just use `nix run` in the project directory to build and run the package directly.
 There also is `nix develop` for develop shell (Not yet implemented, so now just nothing), and `nix build` command for build package.
-If this pull request is merged, We also can use`nix run github:davidsmorais/kuro` to do same things but anywhere with nix.
+If this pull request is merged, We also can use`nix run github:fildunsky/opensource-todo` to do same things but anywhere with nix.
 And I didn't remove `default.nix` so the legacy `nix-build` command is also work.
 
 You can find more here: https://nixos.org/manual/nix/stable/command-ref/experimental-commands.html
@@ -68,10 +68,10 @@ If there is no change in the software architecture related to Electron (also no 
 
 Update the `rev` and the `hash` in the `fetchFromGitHub` method:
 
-The `rev` can be a released version ([like 9.0.0](https://github.com/davidsmorais/kuro/releases/tag/v9.0.0)) or a commit hash ([like `daec9191a69a4e5fae709867f63a479036624a98`](https://github.com/davidsmorais/kuro/commit/daec9191a69a4e5fae709867f63a479036624a98))
+The `rev` can be a released version ([like 10.0.0](https://github.com/fildunsky/opensource-todo/releases/tag/v10.0.0)) or a commit hash ([any commit on master](https://github.com/fildunsky/opensource-todo/commits/master))
 The `hash` can be calculated by fetch the tarball of source like this:
 ```sh
-nix flake prefetch https://github.com/davidsmorais/kuro/archive/refs/tags/v9.0.0.tar.gz
+nix flake prefetch https://github.com/fildunsky/opensource-todo/archive/refs/tags/v10.0.0.tar.gz
 ```
 This will [download the tarball and unpack it](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake-prefetch.html), store it and able to used by flake, and also calculate the **[SRI hash with sha256](https://github.com/NixOS/nixpkgs/issues/191128#issuecomment-1246030466)**.
 

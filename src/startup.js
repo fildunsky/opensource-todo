@@ -7,7 +7,7 @@ const {store: settings} = require("./settings");
 // old `remote` module is gone). macOS needs the .app bundle; an AppImage must
 // point at the image itself, its mount point does not survive a reboot.
 const _settings = {
-  name: "Kuro",
+  name: "Opensource ToDo",
   path: is.darwin
     ? process.execPath.replace(/\.app\/Contents.*/, ".app")
     : (process.env.APPIMAGE || undefined),

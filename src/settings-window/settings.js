@@ -1,10 +1,10 @@
 "use strict";
 
 // Renderer for the Settings window. Runs without Node; everything goes
-// through the `window.kuro` bridge exposed by preload.js.
+// through the `window.todo` bridge exposed by preload.js.
 
 (() => {
-  const api = window.kuro;
+  const api = window.todo;
   let T = {};
 
   // Which electron-store checkboxes go where. `hint` is an optional string key.
@@ -139,7 +139,7 @@
     moveTabIndicator();
 
     try {
-      localStorage.setItem("kuro-settings-tab", name);
+      localStorage.setItem("todo-settings-tab", name);
     } catch {}
   }
 
@@ -236,7 +236,7 @@
 
     let remembered = "general";
     try {
-      remembered = localStorage.getItem("kuro-settings-tab") || remembered;
+      remembered = localStorage.getItem("todo-settings-tab") || remembered;
     } catch {}
 
     selectTab(tabs.some(x => x.dataset.tab === remembered) ? remembered : "general");

@@ -8,7 +8,7 @@ const file = require("./file");
 const { store: settings } = require("./settings");
 
 // Shortcut reference shown from Help: [label key, command]. The accelerator
-// comes from the platform defaults as customized in kuro.json.
+// comes from the platform defaults as customized in todo.json.
 const KEY_REFERENCE = [
   ["dialog.key.addDueDate", "add-due-date"],
   ["dialog.key.setReminder", "set-reminder"],

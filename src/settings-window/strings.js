@@ -5,7 +5,7 @@
 // needs Node access.
 
 const en = {
-  title: "Kuro Settings",
+  title: "Opensource ToDo Settings",
   tabGeneral: "General",
   tabAppearance: "Appearance",
   tabShortcuts: "Shortcuts",
@@ -39,7 +39,7 @@ const en = {
   invertNewTaskPosition: "New tasks at the bottom",
   customMode: "Custom theme",
   customModeHint: "Use the colors below instead of To-Do's theme",
-  customThemeHint: "Colors are read from kuro.json when Kuro starts; changes take effect after restart. Values with transparency keep their alpha.",
+  customThemeHint: "Colors are read from todo.json when Opensource ToDo starts; changes take effect after restart. Values with transparency keep their alpha.",
   defaultValue: "Default: {value}",
   resetTheme: "Reset custom theme to defaults",
   confirmResetTheme: "Reset all custom theme colors to their defaults?",
@@ -49,13 +49,13 @@ const en = {
   shortcut: "Shortcut",
   invalidShortcut: "A shortcut cannot be empty",
 
-  openJson: "Open kuro.json in editor",
+  openJson: "Open todo.json in editor",
   openFolder: "Open config folder",
   close: "Close",
   configPath: "Config file",
 
   saved: "Saved",
-  restartNote: "Takes effect after Kuro restarts",
+  restartNote: "Takes effect after Opensource ToDo restarts",
   menuNote: "Checkboxes in the application menu catch up after restart.",
   errorSave: "Could not save: {message}",
   errorLoad: "Could not load settings: {message}",
@@ -86,7 +86,7 @@ const en = {
     "toggle-dark-mode": "Toggle dark theme",
     "toggle-custom-mode": "Toggle custom theme",
     "toggle-sidebar": "Toggle sidebar",
-    exit: "Quit Kuro",
+    exit: "Quit Opensource ToDo",
   },
 
   // Building blocks for humanised theme keys: bgPrimary → "Background primary"
@@ -115,7 +115,7 @@ const en = {
 };
 
 const ru = {
-  title: "Настройки Kuro",
+  title: "Настройки Opensource ToDo",
   tabGeneral: "Основные",
   tabAppearance: "Внешний вид",
   tabShortcuts: "Горячие клавиши",
@@ -149,7 +149,7 @@ const ru = {
   invertNewTaskPosition: "Новые задачи снизу",
   customMode: "Пользовательская тема",
   customModeHint: "Использовать цвета ниже вместо темы To-Do",
-  customThemeHint: "Цвета читаются из kuro.json при запуске Kuro; изменения вступят в силу после перезапуска. Полупрозрачные значения сохраняют прозрачность.",
+  customThemeHint: "Цвета читаются из todo.json при запуске Opensource ToDo; изменения вступят в силу после перезапуска. Полупрозрачные значения сохраняют прозрачность.",
   defaultValue: "По умолчанию: {value}",
   resetTheme: "Сбросить цвета темы",
   confirmResetTheme: "Сбросить все цвета пользовательской темы к значениям по умолчанию?",
@@ -159,13 +159,13 @@ const ru = {
   shortcut: "Сочетание",
   invalidShortcut: "Сочетание не может быть пустым",
 
-  openJson: "Открыть kuro.json в редакторе",
+  openJson: "Открыть todo.json в редакторе",
   openFolder: "Открыть папку с настройками",
   close: "Закрыть",
   configPath: "Файл настроек",
 
   saved: "Сохранено",
-  restartNote: "Вступит в силу после перезапуска Kuro",
+  restartNote: "Вступит в силу после перезапуска Opensource ToDo",
   menuNote: "Галочки в меню приложения обновятся после перезапуска.",
   errorSave: "Не удалось сохранить: {message}",
   errorLoad: "Не удалось загрузить настройки: {message}",
@@ -196,7 +196,7 @@ const ru = {
     "toggle-dark-mode": "Переключить тёмную тему",
     "toggle-custom-mode": "Переключить пользовательскую тему",
     "toggle-sidebar": "Показать/скрыть боковую панель",
-    exit: "Выйти из Kuro",
+    exit: "Выйти из Opensource ToDo",
   },
 
   themeWords: {

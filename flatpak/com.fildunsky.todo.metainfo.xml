@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.davidmorais.kuro</id>
-  <name>Kuro</name>
+  <id>com.fildunsky.todo</id>
+  <name>Opensource ToDo</name>
   <summary>An elegant Microsoft ToDo desktop client</summary>
-  <developer_name>David Morais</developer_name>
+  <developer_name>Fil Dunsky</developer_name>
 
   <project_license>MIT</project_license>
   <metadata_license>CC0-1.0</metadata_license>
 
   <description>
-	<p>Kuro is an unofficial, featureful, open source, community-driven, free Microsoft To-Do app for Linux.</p>
+	<p>Opensource ToDo is an unofficial, featureful, open source, community-driven, free Microsoft To-Do app for Linux. It continues Kuro by David Morais, which itself continued Ao by Klaus Sinani.</p>
   </description>
   
   <screenshots>
@@ -20,7 +20,7 @@
     </screenshot>
   </screenshots>
 
-  <url type="homepage">https://github.com/davidsmorais/kuro</url>
+  <url type="homepage">https://github.com/fildunsky/opensource-todo</url>
 
   <requires>
     <control>keyboard</control>
@@ -34,6 +34,12 @@
   </content_rating>
 
   <releases>
+    <release date="2026-09-12" version="10.0.0">
+      <description>
+        <p>Opensource ToDo: the project continues under a new name, with per-list themes, localization, motion, Electron 44 and many fixes.</p>
+      </description>
+    </release>
+
     <release date="2025-08-12" version="9.1.1">
 	  <description>
 	  <p>Bug Fixes 🐞</p>
@@ -65,6 +71,6 @@
     </release>
   </releases>
 
-  <update_contact>https://github.com/DUB1401</update_contact>
-  <launchable type="desktop-id">com.davidmorais.kuro.desktop</launchable>
+  <update_contact>https://github.com/fildunsky</update_contact>
+  <launchable type="desktop-id">com.fildunsky.todo.desktop</launchable>
 </component>

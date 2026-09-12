@@ -53,7 +53,7 @@ class Config {
     return result;
   }
 
-  // Move a pre-existing ~/.kuro.json into the XDG/userData location
+  // Move a pre-existing ~/.todo.json into the XDG/userData location
   _migrateLegacyConfig(path) {
     const legacy = file.legacyLocalConfig;
 
