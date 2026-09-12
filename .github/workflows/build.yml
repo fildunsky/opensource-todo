@@ -58,7 +58,15 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: "dist/*"
+          # Only the packages; electron-builder's debug and updater manifests stay out
+          files: |
+            dist/*.AppImage
+            dist/*.pacman
+            dist/*.deb
+            dist/*.snap
+            dist/*.rpm
+            dist/*.flatpak
+            dist/*.exe
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
