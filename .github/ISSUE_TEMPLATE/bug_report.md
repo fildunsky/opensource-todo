@@ -1,10 +1,10 @@
 ---
-name: Bug Report 🐞
+name: Bug report
 about: Create a report to help us improve
 labels: ["bug"]
-title: "[Bug 🐞]: "
+title: "[Bug]: "
 ---
-# Bug Title 🐞
+# Bug title
 
 **Describe the bug**
 A clear and concise description of what the bug is.

@@ -19,10 +19,10 @@ jobs:
         os: [ubuntu-latest, windows-latest]
 
     steps:
-      - name: ⚙️ Check out Git repository
+      - name: Check out Git repository
         uses: actions/checkout@v4
 
-      - name: ⚙️ Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -32,17 +32,17 @@ jobs:
       # flatpak-builder + eu-strip (flatpak). AppImage, deb and snap need
       # nothing extra. The flatpak runtime/sdk are installed from Flathub by
       # flatpak-builder itself.
-      - name: ⚙️ Install Linux packaging tools
+      - name: Install Linux packaging tools
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends rpm libarchive-tools flatpak flatpak-builder elfutils
           flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-      - name: ⚙️📦️ Build
+      - name: Build
         run: yarn install --frozen-lockfile && yarn icons && yarn run electron-builder --publish never
 
-      - name: 🌐️ Upload results
+      - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: binary-${{ matrix.os }}
@@ -55,7 +55,7 @@ jobs:
             dist/*.flatpak
             dist/*.exe
 
-      - name: 🚀️ release
+      - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: "dist/*"

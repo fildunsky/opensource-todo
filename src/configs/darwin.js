@@ -1,5 +1,5 @@
 "use strict";
-/* LEGACY, base on linux if you want to maintain this ☠️ */
+/* LEGACY, base on linux if you want to maintain this */
 module.exports = {
   shortcutKeys: {
     "add-due-date": "Cmd+Shift+T",

@@ -4,6 +4,8 @@
 
 # Opensource ToDo
 
+English | [Русский](readme.ru.md)
+
 An unofficial, featureful, open source, community-driven, free Microsoft To-Do desktop app for Linux (with a Windows installer built by CI).
 
 Opensource ToDo continues [Kuro](https://github.com/davidsmorais/kuro) by [David Morais](https://davidmorais.com), which itself continued [Ao](https://github.com/klaussinani/ao) by [Klaus Sinani](https://github.com/klaussinani). Both projects went quiet; this fork keeps the app working and adds what its users asked for. All credit for the original work, the logo and the icons goes to them - see [Credits](#credits).
@@ -52,7 +54,7 @@ Global shortcuts only work on X11.
 
 `Help > Keyboard Shortcuts` shows the current bindings; they are configurable in the settings window. Defaults on Linux/Windows use `Ctrl`, on macOS `Cmd`.
 
-## Bug 🐞, question ❓ or feature request 🚀?
+## Bugs, questions and feature requests
 
 Open an [issue](https://github.com/fildunsky/opensource-todo/issues/new/choose) or a pull request.
 

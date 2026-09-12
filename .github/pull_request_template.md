@@ -1,6 +1,6 @@
 <!--
 
-Thank you for taking the time to contribute to Opensource ToDo! ✨🎉
+Thank you for taking the time to contribute to Opensource ToDo!
 
 For more info on how to contribute to the project, please read the [contributing guidelines](https://github.com/fildunsky/opensource-todo/blob/master/contributing.md).
 

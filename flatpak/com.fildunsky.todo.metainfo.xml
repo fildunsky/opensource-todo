@@ -11,7 +11,7 @@
   <description>
 	<p>Opensource ToDo is an unofficial, featureful, open source, community-driven, free Microsoft To-Do app for Linux. It continues Kuro by David Morais, which itself continued Ao by Klaus Sinani.</p>
   </description>
-  
+
   <screenshots>
     <screenshot type="default">
       <caption>Tasks</caption>
@@ -42,11 +42,11 @@
 
     <release date="2025-08-12" version="9.1.1">
 	  <description>
-	  <p>Bug Fixes 🐞</p>
+	  <p>Bug fixes</p>
 	  <ul>
 	  	<li>ToDo URLs will no longer open in Chrome and will keep themselves in app.</li>
 	  </ul>
-	  <p>Features ✨</p>
+	  <p>Features</p>
 	  <ul>
 	  	<li><code>bgDanger</code> and <code>fontColorDanger</code> can now be specified in custom themes to target the danger buttons specifically while keeping fontColorWarning for the rest of the UI text.</li>
 	  </ul>
@@ -55,17 +55,17 @@
 
 	<release date="2025-08-06" version="9.1.0">
 	  <description>
-	  <p>Bug Fixes 🐛</p>
+	  <p>Bug fixes</p>
 	  <ul>
 	  	<li>Links are no longer opening in Electron, they should use the OS browser instead now</li>
 		<li>Fix suggestions background in custom theme</li>
 		<li>Fixed the exit keybind not being implemented</li>
 	  </ul>
-	  <p>New Features ✨</p>
+	  <p>New features</p>
 	  <ul>
-	  	<li>Flatpak has arrived 🙌</li>
+	  	<li>Flatpak packaging</li>
 	  	<li>New setting/shortcut to invert task position</li>
-		<li>Updated electron from v22 to v37 🤖</li>
+		<li>Updated Electron from v22 to v37</li>
 	  </ul>
 	  </description>
     </release>

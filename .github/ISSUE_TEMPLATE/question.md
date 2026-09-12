@@ -1,10 +1,10 @@
 ---
-name: Question ❓
+name: Question
 about: Ask a question about the project
 labels: ["question"]
-title: "[Question❓]: "
+title: "[Question]: "
 ---
-# Question Title❓
+# Question title
 
 
 
