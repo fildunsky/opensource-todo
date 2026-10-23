@@ -8,6 +8,7 @@ const nav = require("./nav");
 const startup = require("./startup");
 const themePanel = require("./theme-panel");
 const dialog = require("./dialog");
+const locateTask = require("./locate-task");
 
 // The title button of the currently selected task. Clicking it opens the
 // detail pane (and keeps it open if it is already showing).
@@ -166,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
   layout.watchSidebar();
   layout.trackTitle();
   themePanel.mountButton();
+  locateTask.mount();
   layout.closeSettingsOnOutsideClick();
 });
 

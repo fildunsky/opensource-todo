@@ -193,4 +193,6 @@ module.exports = {
   "theme.color.green": "Зелёный",
   "theme.color.teal": "Бирюзовый",
   "theme.color.graphite": "Графит",
+  "locate.task": "Показать в списке",
+  "locate.missing": "Нет в текущем списке",
 };
