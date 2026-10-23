@@ -39,6 +39,14 @@ module.exports = {
 
   // Edit menu
   "menu.edit.label": "Edit",
+  "menu.edit.undo": "Undo",
+  "menu.edit.redo": "Redo",
+  "menu.edit.cut": "Cut",
+  "menu.edit.copy": "Copy",
+  "menu.edit.paste": "Paste",
+  "menu.edit.pasteAndMatchStyle": "Paste and Match Style",
+  "menu.edit.delete": "Delete",
+  "menu.edit.selectAll": "Select All",
 
   // View menu
   "menu.view.label": "View",
@@ -56,6 +64,7 @@ module.exports = {
   "menu.view.language.system": "System",
   "menu.view.language.en": "English",
   "menu.view.language.ru": "Русский",
+  "menu.view.language.zh": "简体中文",
   "menu.view.changeListTheme": "Change List Theme…",
   "menu.view.nextList": "Navigate to Next List",
   "menu.view.previousList": "Navigate to Previous List",
@@ -193,4 +202,18 @@ module.exports = {
   "theme.color.green": "Green",
   "theme.color.teal": "Teal",
   "theme.color.graphite": "Graphite",
+
+  // Right-click context menu (electron-context-menu)
+  "contextMenu.cut": "Cut",
+  "contextMenu.copy": "Copy",
+  "contextMenu.paste": "Paste",
+  "contextMenu.save": "Save",
+  "contextMenu.saveImageAs": "Save Image As…",
+  "contextMenu.copyLink": "Copy Link",
+  "contextMenu.copyImage": "Copy Image",
+  "contextMenu.copyImageAddress": "Copy Image Address",
+  "contextMenu.inspect": "Inspect Element",
+  "contextMenu.lookUpSelection": "Look Up “{selection}”",
+  "contextMenu.searchWithGoogle": "Search with Google",
+  "contextMenu.learnSpelling": "Learn Spelling",
 };

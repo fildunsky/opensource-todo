@@ -105,7 +105,7 @@ module.exports = {
     },
     {
       label: t("menu.view.language.label"),
-      submenu: ["system", "en", "ru"].map(code => ({
+      submenu: ["system", "en", "ru", "zh"].map(code => ({
         label: t(`menu.view.language.${code}`),
         type: "radio",
         checked: settings.get("language") === code,

@@ -14,6 +14,7 @@ const update = require("./src/update");
 const url = require("./src/url");
 const win = require("./src/win");
 const { customTheme } = require("./src/config");
+const { t } = require("./src/locale");
 
 const { log } = console;
 
@@ -24,18 +25,34 @@ const { log } = console;
 // menus; "system" leaves the OS locale untouched.
 {
   const chosen = store.get("language");
-  if (chosen === "en" || chosen === "ru") {
-    const locale = chosen === "ru" ? "ru_RU.UTF-8" : "en_US.UTF-8";
+  const LOCALES = { en: "en-US", ru: "ru-RU", zh: "zh-CN" };
+  if (LOCALES[chosen]) {
+    const locale = `${LOCALES[chosen].replace("-", "_")}.UTF-8`;
     process.env.LC_ALL = locale;
     process.env.LANG = locale;
     process.env.LANGUAGE = chosen;
-    app.commandLine.appendSwitch("lang", chosen === "ru" ? "ru-RU" : "en-US");
+    app.commandLine.appendSwitch("lang", LOCALES[chosen]);
   }
 }
 
 require("electron-debug")({ enabled: true });
 require("electron-dl")();
-require("electron-context-menu")();
+require("electron-context-menu")({
+  labels: Object.fromEntries([
+    "cut",
+    "copy",
+    "paste",
+    "save",
+    "saveImageAs",
+    "copyLink",
+    "copyImage",
+    "copyImageAddress",
+    "inspect",
+    "lookUpSelection",
+    "searchWithGoogle",
+    "learnSpelling",
+  ].map(key => [key, t(`contextMenu.${key}`)])),
+});
 
 let exiting = false;
 let shown = false;
@@ -130,10 +147,12 @@ app.whenReady().then(() => {
 
   // Language for the To-Do web app itself (its UI strings, "Add a task",
   // dates). Follows the Opensource ToDo language setting; "system" keeps the OS locale.
-  const preferred = store.get("language") === "en" || store.get("language") === "ru"
+  const PRIMARY = { en: "en-US", ru: "ru-RU", zh: "zh-CN" };
+  const preferred = PRIMARY[store.get("language")]
     ? store.get("language")
     : app.getLocale();
-  const primary = preferred.includes("-") ? preferred : `${preferred}-${preferred.toUpperCase()}`;
+  const primary = PRIMARY[preferred]
+    || (preferred.includes("-") ? preferred : `${preferred}-${preferred.toUpperCase()}`);
   const acceptLanguage = `${primary},${preferred};q=0.9,en-US;q=0.8`;
   session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
     details.requestHeaders["Accept-Language"] = acceptLanguage;

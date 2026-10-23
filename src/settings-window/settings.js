@@ -307,7 +307,7 @@
     renderLanguage(state);
   }
 
-  const LANGUAGES = ["system", "en", "ru"];
+  const LANGUAGES = ["system", "en", "ru", "zh"];
 
   function renderLanguage(state) {
     const select = $("#language");

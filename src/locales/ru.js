@@ -39,6 +39,14 @@ module.exports = {
 
   // Edit menu
   "menu.edit.label": "Правка",
+  "menu.edit.undo": "Отменить",
+  "menu.edit.redo": "Повторить",
+  "menu.edit.cut": "Вырезать",
+  "menu.edit.copy": "Копировать",
+  "menu.edit.paste": "Вставить",
+  "menu.edit.pasteAndMatchStyle": "Вставить без форматирования",
+  "menu.edit.delete": "Удалить",
+  "menu.edit.selectAll": "Выделить всё",
 
   // View menu
   "menu.view.label": "Вид",
@@ -56,6 +64,7 @@ module.exports = {
   "menu.view.language.system": "Как в системе",
   "menu.view.language.en": "English",
   "menu.view.language.ru": "Русский",
+  "menu.view.language.zh": "简体中文",
   "menu.view.changeListTheme": "Сменить тему списка…",
   "menu.view.nextList": "Следующий список",
   "menu.view.previousList": "Предыдущий список",
@@ -193,4 +202,18 @@ module.exports = {
   "theme.color.green": "Зелёный",
   "theme.color.teal": "Бирюзовый",
   "theme.color.graphite": "Графит",
+
+  // Right-click context menu (electron-context-menu)
+  "contextMenu.cut": "Вырезать",
+  "contextMenu.copy": "Копировать",
+  "contextMenu.paste": "Вставить",
+  "contextMenu.save": "Сохранить",
+  "contextMenu.saveImageAs": "Сохранить изображение как…",
+  "contextMenu.copyLink": "Копировать ссылку",
+  "contextMenu.copyImage": "Копировать изображение",
+  "contextMenu.copyImageAddress": "Копировать адрес изображения",
+  "contextMenu.inspect": "Просмотреть код элемента",
+  "contextMenu.lookUpSelection": "Найти «{selection}»",
+  "contextMenu.searchWithGoogle": "Искать в Google",
+  "contextMenu.learnSpelling": "Добавить в словарь",
 };

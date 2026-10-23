@@ -90,7 +90,8 @@ let handlersRegistered = false;
 
 // Same source as the menus (TODO_LANG, View > Language, OS locale)
 function locale() {
-  return require("../locale").language() === "ru" ? "ru" : "en";
+  const lang = require("../locale").language();
+  return ["ru", "zh"].includes(lang) ? lang : "en";
 }
 
 // The To-Do window: any live window other than ours. Looked up on demand
@@ -325,7 +326,7 @@ function setSetting(key, value) {
 
   if (key === "language") {
     const lang = String(value);
-    if (!["system", "en", "ru"].includes(lang)) {
+    if (!["system", "en", "ru", "zh"].includes(lang)) {
       throw new Error(`Unsupported language: ${lang}`);
     }
 

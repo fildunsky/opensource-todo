@@ -4,12 +4,13 @@
 // renderer. Kept free of side effects: nothing here waits for app.whenReady,
 // because the menu templates are built at require time.
 
-const SUPPORTED = new Set(["en", "ru"]);
+const SUPPORTED = new Set(["en", "ru", "zh"]);
 const FALLBACK = "en";
 
 const locales = {
   en: require("./locales/en"),
   ru: require("./locales/ru"),
+  zh: require("./locales/zh"),
 };
 
 // "ru-RU", "ru_RU.UTF-8", "ru" → "ru"; anything not supported → "" (unknown).

@@ -36,6 +36,7 @@ const en = {
   "language.system": "System",
   "language.en": "English",
   "language.ru": "Русский",
+  "language.zh": "简体中文",
   invertNewTaskPosition: "New tasks at the bottom",
   customMode: "Custom theme",
   customModeHint: "Use the colors below instead of To-Do's theme",
@@ -146,6 +147,7 @@ const ru = {
   "language.system": "Как в системе",
   "language.en": "English",
   "language.ru": "Русский",
+  "language.zh": "简体中文",
   invertNewTaskPosition: "Новые задачи снизу",
   customMode: "Пользовательская тема",
   customModeHint: "Использовать цвета ниже вместо темы To-Do",
@@ -223,10 +225,121 @@ const ru = {
   },
 };
 
-const tables = { en, ru };
+const zh = {
+  title: "Opensource ToDo 设置",
+  tabGeneral: "常规",
+  tabAppearance: "外观",
+  tabShortcuts: "快捷键",
+
+  sectionStartup: "启动",
+  sectionWindow: "窗口",
+  sectionUpdates: "更新",
+  sectionTheme: "主题",
+  sectionCustomTheme: "自定义主题颜色",
+
+  alwaysOnTop: "窗口置顶",
+  autoLaunch: "开机启动",
+  launchMinimized: "启动时最小化",
+  hideTray: "隐藏托盘图标",
+  requestExitConfirmation: "退出前确认",
+  reopenLastList: "启动时打开上次的列表",
+  useGlobalShortcuts: "全局快捷键",
+  disableAutoUpdateCheck: "不自动检查更新",
+  updateCheckPeriod: "检查更新间隔",
+  hours: "{n} 小时",
+
+  menuBarHidden: "隐藏菜单栏",
+  menuBarHiddenHint: "按 Alt 可临时显示",
+  autoNightMode: "跟随系统主题",
+  autoNightModeHint: "跟随系统的浅色或深色外观",
+  listAccents: "跟随列表颜色",
+  language: "语言",
+  "language.system": "跟随系统",
+  "language.en": "English",
+  "language.ru": "Русский",
+  "language.zh": "简体中文",
+  invertNewTaskPosition: "新任务添加到底部",
+  customMode: "自定义主题",
+  customModeHint: "使用下面的颜色代替 To Do 自带主题",
+  customThemeHint: "颜色在 Opensource ToDo 启动时从 todo.json 读取，修改后重启生效。带透明度的值会保留 alpha。",
+  defaultValue: "默认：{value}",
+  resetTheme: "将自定义主题恢复默认",
+  confirmResetTheme: "将所有自定义主题颜色恢复为默认值？",
+
+  shortcutsHint: "快捷键使用 Electron 语法，例如 Ctrl+Shift+T 或 CmdOrCtrl+Alt+A。修改后重启生效。",
+  command: "命令",
+  shortcut: "快捷键",
+  invalidShortcut: "快捷键不能为空",
+
+  openJson: "在编辑器中打开 todo.json",
+  openFolder: "打开配置目录",
+  close: "关闭",
+  configPath: "配置文件",
+
+  saved: "已保存",
+  restartNote: "重启 Opensource ToDo 后生效",
+  menuNote: "应用菜单中的勾选状态在重启后同步。",
+  errorSave: "保存失败：{message}",
+  errorLoad: "加载设置失败：{message}",
+
+  commands: {
+    "add-due-date": "添加截止日期",
+    "set-reminder": "设置提醒",
+    "set-repeat": "设置重复",
+    "add-my-day": "添加到“我的一天”",
+    "complete-todo": "完成任务",
+    "delete-list": "删除列表",
+    "delete-todo": "删除任务",
+    "global-create-todo": "新建任务（全局）",
+    "global-search-todo": "搜索（全局）",
+    "global-toggle-window": "显示/隐藏窗口（全局）",
+    "hide-todo": "隐藏已完成任务",
+    important: "重要",
+    "my-day": "我的一天",
+    "new-list": "新建列表",
+    "new-todo": "新建任务",
+    planned: "计划内",
+    "rename-list": "重命名列表",
+    "rename-todo": "重命名任务",
+    return: "返回 / Esc",
+    settings: "To Do 设置",
+    "sign-out": "退出登录",
+    tasks: "任务",
+    "toggle-dark-mode": "切换深色主题",
+    "toggle-custom-mode": "切换自定义主题",
+    "toggle-sidebar": "显示/隐藏侧边栏",
+    exit: "退出 Opensource ToDo",
+  },
+
+  // Building blocks for humanised theme keys: bgPrimary → "背景 主要"
+  themeWords: {
+    bg: "背景",
+    fontColor: "文字颜色",
+    primary: "主要",
+    secondary: "次要",
+    tertiary: "第三级",
+    transparent: "透明",
+    hover: "悬停",
+    active: "激活",
+    separator: "分隔线",
+    border: "边框",
+    scrollbar: "滚动条",
+    warning: "警告",
+    brand: "品牌色",
+    danger: "危险",
+    disable: "禁用",
+    red: "红色",
+    blue: "蓝色",
+    skyblue: "天蓝色",
+    purple: "紫色",
+    green: "绿色",
+  },
+};
+
+const tables = { en, ru, zh };
 
 function get(lang) {
   return tables[lang] || en;
 }
 
-module.exports = { en, ru, get };
+module.exports = { en, ru, zh, get };
