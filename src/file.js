@@ -49,6 +49,10 @@ module.exports = {
   get localConfig() {
     return path.join(userData(), "todo.json");
   },
+  // Optional user stylesheet injected after the app's own sheets (e.g. category row colors)
+  get userStyle() {
+    return path.join(userData(), "user.css");
+  },
   preload: path.join(__dirname, "./browser.js"),
   style: path.join(__dirname, "./style"),
   trayIcon: path.join(__dirname, "../static/IconTray.png"),
